@@ -22,6 +22,10 @@
             android:name="ca.ualberta.cs.lonelytwitter.NewActivity"
             android:label="@string/title_activity_new" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity2"
+            android:label="@string/title_activity_lonely_twitter_activity2" >
+        </activity>
     </application>
 
 </manifest>
