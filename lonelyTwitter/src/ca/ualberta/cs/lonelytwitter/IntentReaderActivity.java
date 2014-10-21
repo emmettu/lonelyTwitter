@@ -15,16 +15,30 @@ public class IntentReaderActivity extends Activity {
 	public static final int DOUBLE = 3;
 	
 	private String text;
-	private int mode;
+	private int mode = NORMAL;
 	
 	public String getText() {
 		return text;
+	}
+	
+	public TextView getView() {
+		return (TextView) findViewById(R.id.intentText);
 	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_intent_reader);
+		Intent intent  = getIntent();
+		text = intent.getStringExtra(TEXT_KEY);
+		mode = intent.getIntExtra(TRANSFORM_KEY, NORMAL);
+		text = transformText(text);
+				
+		if(text != null && text.equals("")) {
+			text = "No message";
+		}
+		
+		getView().setText(text);
 	}
 	
 	public String transformText(String text) {
